@@ -3,6 +3,7 @@ const express = require("express");
 const hbs = require("hbs");
 const geocode = require("./utils/geocode");
 const forecast = require("./utils/forecast");
+const port = process.env.PORT || 9000;
 
 const app = express();
 
@@ -79,6 +80,6 @@ app.get("*", (req, res)=>{ //generic 404
     });
 });
 
-app.listen(9000, ()=>{
-    console.log("server running..");
+app.listen(port, ()=>{
+    console.log("server running on port" + port);
 });

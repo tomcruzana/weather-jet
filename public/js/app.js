@@ -12,7 +12,7 @@ waetherForm.addEventListener("submit", async (e)=>{
         alert("invalid")
         return -1;
     }
-    await fetch(`http://localhost:9000/weather?address=${search.value}`)
+    await fetch(`/weather?address=${search.value}`)
     .then(r => r.json())
     .then(d => {
         if(d.err){alert(d.error);}
