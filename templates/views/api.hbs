@@ -2,15 +2,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/logo.png" type="image/gif" sizes="16x16"> 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/styles.css">
     <title>{{headerTitle}}</title>
 </head>
     <body>
         {{>header}}
-        <div class="container">
-            {{message}}
+        <div class="container my-5">
+            <h3>API endpoint</h3>
+            <pre class="text-light"><code>host/weather?address=name</code></pre>
+
+            <h3>Example request</h3>
+            <pre class="text-light"><code>host/weather?address=seattle</code></pre>
+
+            <h3>Sample response</h3>
+            <pre class="text-light"><code>
+                {
+                    "location":"Seattle, Washington, United States",
+                    "forecast":"Partly cloudy. The current temperature is 70°F, but it feels like 70°F",
+                    "address":"seattle","lat":47.6038,"long":-122.3301
+                }
+            </code></pre>
         </div>
+
         {{>footer}}
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

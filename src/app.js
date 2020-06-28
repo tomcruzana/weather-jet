@@ -21,17 +21,23 @@ app.use(express.static(publicDirPath));
 
 app.get("/", (req, res)=>{
     res.render("index",{  //looks in the view dir by default
-        headerTitle: "Home"
+        headerTitle: "Weather Jet"
     });
 });
 
 app.get("/about", (req, res)=>{
     res.render("about",{
-        headerTitle: "About"
+        headerTitle: "About Weather Jet"
     }); 
 });
 
-app.get("/weather", (req, res)=>{
+app.get("/api", (req, res)=>{
+    res.render("api",{
+        headerTitle: "Weather Jet API"
+    }); 
+});
+
+app.get("/weather", (req, res)=>{ //route for fetching weather
 
     (!req.query.address) ? 
     res.send("<h1>Error. You must provide and address!</h1>") 
@@ -48,10 +54,12 @@ app.get("/weather", (req, res)=>{
                 return console.log(err);
             }
             
-            res.send({
+            res.send({ //create json data
                 location: data.location,
                 forecast: forecastData,
-                address: req.query.address
+                address: req.query.address,
+                lat: data.lat,
+                long: data.long
             })
         });
     })
