@@ -50,7 +50,7 @@ app.get("/weather", (req, res)=>{ //route for fetching weather
             return console.log(err);
         }
         
-        forecast(data.lat, data.long, (err, forecastData)=>{
+        forecast(data.lat, data.long, (err, forecastData, humidity, isDay)=>{
             if(err){
                 return console.log(err);
             }
@@ -59,6 +59,8 @@ app.get("/weather", (req, res)=>{ //route for fetching weather
                 location: data.location,
                 forecast: forecastData,
                 address: req.query.address,
+                humidity: humidity,
+                isDay: isDay,
                 lat: data.lat,
                 long: data.long
             })

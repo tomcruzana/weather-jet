@@ -11,7 +11,7 @@ const forecast = (lat, long, cb) => {
             cb("No location found", undefined);
         } 
         else{
-            cb(undefined, `${res.body.current.weather_descriptions[0]}. The current temperature is ${res.body.current.temperature}°F, but it feels like ${res.body.current.feelslike}°F`);
+            cb(undefined, `${res.body.current.weather_descriptions[0]}. The current temperature is ${res.body.current.temperature}°F, but it feels like ${res.body.current.feelslike}°F`, `Humidity is ${res.body.current.humidity}%`, res.body.current.is_day);
         }
     });
 }
